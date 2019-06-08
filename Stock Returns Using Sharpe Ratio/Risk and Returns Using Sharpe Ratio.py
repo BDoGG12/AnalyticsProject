@@ -1,23 +1,28 @@
-# Analyzing Stocks
+# Analyzing Stock returns
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+
+# Step 1: Reading in stock data and benchmark data
 
 stock_data = pd.read_csv('stock_data.csv', parse_dates = ['Date'], 
                          index_col = ['Date'], na_values = 'NAN')
 benchmark_data = pd.read_csv('benchmark_data.csv', parse_dates = ['Date'], 
                              index_col = ['Date'], na_values = 'NAN')
 
+# Check for missing data
 stock_data.isnull().sum()
 benchmark_data.isnull().sum()
 
+# Since benchmark contained a few missing data, we dropped them.
 benchmark_data.dropna(inplace=True)
 
 # Displaying Content of each data
 print(stock_data.info())
 print(benchmark_data.info())
 
+# Displaying the top 5 rows the data
 stock_data.head()
 benchmark_data.head()
 
@@ -29,7 +34,7 @@ stock_data.describe()
 benchmark_data.plot(title = 'S&P 500')
 benchmark_data.describe()
 
-# Calculating Daily returns on stocks
+# Step 2: Calculate Daily returns on stocks and S&P returns
 stock_returns = stock_data.pct_change()
 
 stock_returns.plot(subplots=True, title = 'Daily Returns on Stocks')
@@ -42,7 +47,7 @@ sp_returns.plot(title = 'Daily S&P Returns')
 sp_returns.describe()
 
 
-# Excess Returns Calculations
+# Step 3: Excess Returns Calculations
 excess_returns = stock_returns.sub(sp_returns, axis=0)
 
 excess_returns.plot(subplots=True, title='Excess Returns on Stocks')
@@ -56,11 +61,12 @@ avg_excess_returns.plot.bar(title='Mean of the Return Difference')
 # Getting the Standard deviation of the Excess Returns
 sd_excess_returns = excess_returns.std()
 
+# Based on the bar plot, the risk
 sd_excess_returns.plot.bar(title='Standard Deviation of the Return Difference')
 
 
 
-# Applying the Sharpe Ratio 
+# Step 4: Applying the Sharpe Ratio 
 daily_sharpe_ratio = avg_excess_returns.div(sd_excess_returns)
 
 annual_factor = np.sqrt(252)
