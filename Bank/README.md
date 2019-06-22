@@ -55,7 +55,7 @@ nr.employed: number of employees - quarterly indicator (numeric)
 y: has the client subscribed a term deposit? (binary: 'yes','no')
 
 
-# Goal
+# Questions
 1. Can we build a model where clients will subscribe to a term deposit?
 
 2. What are the variables in the model?
