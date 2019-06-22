@@ -61,5 +61,3 @@ y: has the client subscribed a term deposit? (binary: 'yes','no')
 2. What are the variables in the model?
 
 3. Which ones are most impactful and how do they influence the prediction of the client’s response to the telemarketing campaign?
-
-4. If I want to have more clients subscribe to the term deposit, what aspects should I target?
