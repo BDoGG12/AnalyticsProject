@@ -56,8 +56,7 @@ y: has the client subscribed a term deposit? (binary: 'yes','no')
 
 
 # Questions
-1. Can we build a model where clients will subscribe to a term deposit?
+1. Will there be more clients subscribing to the term deposit in with a university degree and a profession as an entrepreneur?
 
-2. What are the variables in the model?
+2. How many customers did not subscribe to the term deposits on a monday of July? How many did subscribe?
 
-3. Which ones are most impactful and how do they influence the prediction of the client’s response to the telemarketing campaign?
